@@ -21,7 +21,15 @@ class PhotoViewController: UIViewController {
     }
     
     @IBAction func shareActiton(_ sender: Any) {
+        
+        let shareController = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
+        
+        shareController.completionWithItemsHandler = { _, bool, _, _ in
+            if bool {
+                print("Успешно!")
+            }
+        }
+        
+        present(shareController, animated: true, completion: nil)
     }
-    
-
 }
